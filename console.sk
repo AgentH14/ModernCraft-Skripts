@@ -1,0 +1,6 @@
+options:
+  prefix: &c&lM&f&lC&c&lN &f&lCONSOLE &7»
+
+command /say <text>:
+	trigger:
+		broadcast "{@prefix} %arg-text%"

@@ -1,0 +1,2 @@
+on server list ping:
+    set the motd to "                      &cModern&fCraft                                                     &f&l[&a&lMC 1.19.2&f&l]"

@@ -1,0 +1,103 @@
+command /pskins:
+	trigger:
+		set {_skins} to a new chest inventory with 3 row with name "&a&lPlayer Skins"
+		set slot 2 of {_skins} to player head named "&d&lSteve Remake" with lore "&e&lRemodeled Steve Skin"
+		set slot 3 of {_skins} to player head named "&b&lWookie" with lore "&e&lStarWars Wookie Skin"
+		set slot 4 of {_skins} to player head named "&a&lShrek" with lore "&e&lShrek Skin"
+		set slot 5 of {_skins} to player head named "&c&lReverse Flash" with lore "&e&lEvil Speedster from TheFlash"
+		set slot 6 of {_skins} to player head named "&6&lTheFlash" with lore "&e&lHero Speedster from TheFlash"
+		set slot 10 of {_skins} to player head named "&7&lMoon Knight" with lore "&e&lMoon Knight Skin"
+		set slot 11 of {_skins} to player head named "&4&lGiga Chad" with lore "&e&lGiga Chad Skin"
+		set slot 12 of {_skins} to player head named "&1&lSpider-Man 2099" with lore "&e&lFuture Earth SpiderMan"
+		set slot 13 of {_skins} to player head named "&c&lDeadPool" with lore "&e&lDeadPool Skin"
+		set slot 14 of {_skins} to player head named "&f&lWhite Hoodie Boy" with lore "&e&lHoodie Skin"
+		set slot 15 of {_skins} to player head named "&c&lStrider Suit" with lore "&e&lStrider Mob Suit"
+		set slot 16 of {_skins} to player head named "&5&lBee Girl" with lore "&e&lBee Girl Skin"
+		set slot 21 of {_skins} to barrier block named "&c&lClear Skin" with lore "&e&lClears your current skin"
+		set slot 23 of {_skins} to ender pearl named "&a&lSearch Skins" with lore "&e&lSearch for a skin"
+		open {_skins} to player
+        
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 2:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/steveremake/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 3:
+			cancel event
+			make player execute command "/skin set Wookie"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 4:
+			cancel event
+			make player execute command "/skin set KiszonyBajgiel"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 5:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/reverseflash/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 6:
+			cancel event
+			make player execute command "/skin set flash"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 10:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/moonknight/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 11:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/gigachad/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 12:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/spiderman2099/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 13:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/deadpoolhd/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 14:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/whitenikehoodie/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 15:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/stridersuit/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 16:
+			cancel event
+			make player execute command "/skin url https://www.minecraftskins.net/beegirl/download"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 21:
+			cancel event
+			make player execute command "/skin clear"
+            
+on inventory click:
+	if name of event-inventory is "&a&lPlayer Skins":
+		if index of event-slot = 23:
+			cancel event
+			make player execute command "/skin set"
+			close player's inventory

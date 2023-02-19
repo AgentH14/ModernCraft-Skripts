@@ -1,0 +1,87 @@
+options:
+    prefix: &c&lM&f&lC&c&lN &7»
+    
+on first join:
+    if player's world is "hub":
+        set player's gamemode to adventure
+        set join message to "&b&lWelcome %player% to &c&lModern&f&lCraft"
+        make player execute command "/hub"
+    
+on join:
+    if player's world is "hub":
+        set player's gamemode to adventure
+        
+on join:
+	make player execute command "/weather clear"
+        
+on player join:
+    make player execute command "rp"
+        
+on quit:
+    set quit message to "&e%player% has left the server"
+    
+on world change:
+    if player's world is "hub":
+        set player's gamemode to survival
+        
+on world change:
+    if player's world is "City":
+        set player's gamemode to survival
+        
+on world change:
+    if player's world is "FreePlots":
+        set player's gamemode to creative
+        
+command /clearchat:
+        permission: mcn.clearchat
+        permission message: &cNo Permission. 
+        usage: /clearchat
+        trigger:
+                loop 100 times:
+                        send " "
+                wait 5 ticks
+                send "&e&l%player% &fcleared the chat"
+                
+command /rp:
+	trigger:                                        
+		message "&a&l<url:https://download1324.mediafire.com/c6t3tysibwng/lvmiijwebyzl8me/MCN+FLows+v4.4.2.zip>&a&lMCN ResourcePack: &c&l[CLICK HERE]<reset>" to player
+        
+command /site:
+	trigger:
+		message "&a&l<url:https://mcn-server.xyz>&a&lMCN Website: &f&l[CLICK HERE]<reset>" to player
+        
+command /discord:
+	trigger:
+		message "&a&l<url:https://discord.gg/gtJDbcna9s>&a&lMCN Discord: &f&l[CLICK HERE]<reset>" to player
+        
+command /ping [<player>]:
+	trigger:
+		if arg-1 is not set:
+			send "{@prefix} &aYour Ping: &a%player's ping%"
+		else:
+			send "{@prefix} &aYour Ping: &a%player-arg's ping%"
+
+Command /sethub:
+	permission: mcn.sethub
+	permission message: &cNo Permission
+	trigger:
+		set {hub} to location of player
+		message "{@prefix} &a&lYou set the Hub Location!"
+        
+command /hub:
+	trigger:
+		teleport player to {hub}
+		message "&aYou teleported back to Hub!"
+        
+command /fly:
+	permission: mcn.fly
+	Trigger:
+		If {fly.%player%} is not set:
+			Send "<light grey>Flight mode is now <light green>enabled<light grey>." to player
+			set player's flight mode to true
+			Set {fly.%player%} to true
+			Stop
+		Send "<light grey>Flight mode is now <light red>disabled<light grey>." to player
+		set player's flight mode to false
+		Delete {fly.%player%}
+		Stop

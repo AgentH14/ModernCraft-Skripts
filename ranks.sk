@@ -1,0 +1,48 @@
+command /rank set [<player>] [<text>]:
+	trigger:
+		if arg-2 is "owner":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set owner"
+            
+		if arg-2 is "coowner":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set coowner"
+            
+		if arg-2 is "staff":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set staff"
+            
+		if arg-2 is "builder":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set builder"
+            
+		if arg-2 is "builder+":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set builder+"
+            
+		if arg-2 is "potential":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set potential"
+            
+		if arg-2 is "friend":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set friend"
+            
+		if arg-2 is "visitor":
+			if arg-1 is player:
+				set {rank.cmd.set} to "arg-1"
+				make player execute command "lp user %player% parent set visitor"
+            
+		if arg-1 is "help":
+			set {rank.help} to "arg-1"
+			message "&b&lSuper Ranks Help Menu:"
+			message ""
+			message ""
+			message "&e&lUsage: &a/rank set <player> <rank>"

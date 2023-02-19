@@ -1,0 +1,22 @@
+command /staffchat [<text>]:
+    aliases: /sc
+    permission: mcn.staffchat
+    permission message: &6&l(!) &cYou need mcn.staffchat permission to access Staff Chat!
+    trigger:
+        loop all players:
+            if loop-player has permission "mcn.staffchat":
+                send "&d&lStaffChat &7» &7%player's display name%&7: %arg 1%" to loop-player
+                
+on chat:
+	if {staffchat::%player%} is true:
+		if player has permission "mcn.staffchat":
+			cancel event
+			loop all players:
+				if loop-player has permission "mcn.staffchat":
+					send "&d&l[StaffChat] &7%player% &8» &7%message%" to loop-player
+
+command /staffchatinfo:
+    aliases: /scinfo, /sci
+    trigger:
+        message "&6&l(!) &b&lStaff Chat made by ITZZ_AgentH14."
+        message "&6&l(!) &a&lCurrent Version: &81.0"

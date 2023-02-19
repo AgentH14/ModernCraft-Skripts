@@ -1,0 +1,9 @@
+on chat:
+    if {prefix.%player%} is set:
+        if {prefixtoggled.%player%} is true:
+            cancel event
+            send "%{prefix.%player%}% %player%&7: &f%message%" to all players
+        else:
+            stop
+    else:
+        stop

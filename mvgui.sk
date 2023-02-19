@@ -1,0 +1,33 @@
+command /mvgui:
+	trigger:
+		set {_mv} to a new chest inventory with 3 row with name "&e&lMultiverse GUI"
+		set slot 11 of {_mv} to grass block named "&f&lDefault" with lore "&e&lCreates a new default world"
+		set slot 13 of {_mv} to bedrock named "&f&lVoid" with lore "&e&lCreates a new void world"
+		set slot 15 of {_mv} to grass block named "&f&lFlat" with lore "&e&lCreates a new flat world"
+		set slot 26 of {_mv} to red concrete named "&c&lDelete World" with lore "&e&lDeletes your world"
+		open {_mv} to player
+        
+on inventory click:
+	if name of event-inventory is "&e&lMultiverse GUI":
+		if index of event-slot = 11:
+			cancel event
+			make player execute command "/mv create %player%_world normal"
+            
+on inventory click:
+	if name of event-inventory is "&e&lMultiverse GUI":
+		if index of event-slot = 13:
+			cancel event
+			make player execute command "/mv create %player%_world normal -g VoidGen:<%player%_world> -t FLAT"
+            
+on inventory click:
+	if name of event-inventory is "&e&lMultiverse GUI":
+		if index of event-slot = 15:
+			cancel event
+			make player execute command "/mv create %player%_world normal -t flat"
+            
+on inventory click:
+	if name of event-inventory is "&e&lMultiverse GUI":
+		if index of event-slot = 26:
+			cancel event
+			make player execute command "/mv delete %player%_world"
+			make player execute command "/mv confirm"

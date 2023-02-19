@@ -1,0 +1,7 @@
+command /rooster:
+	trigger:
+		make player execute command "/skin set chicken"
+        
+command /xqrta:
+	trigger:
+		make player execute command "/skin url https://s.namemc.com/i/3ca94078b865ac29.png"

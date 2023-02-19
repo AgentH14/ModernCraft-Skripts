@@ -1,0 +1,20 @@
+on join:
+	set {player::%player's uuid%.scaffold} to false
+						
+command /scaffold:
+	trigger:
+		if {player::%player's uuid%.scaffold} is false:
+			set {player::%player's uuid%.scaffold} to true
+			message "&aScaffolding Enabled"
+		else:
+			set {player::%player's uuid%.scaffold} to false
+			message "&cScaffolding Disabled"
+            
+on player move:
+	loop all players:
+		if {player::%player's uuid%.scaffold} is true:
+			set block below player to {player::%player's uuid%.block}
+		if {player::%player's uuid%.block} is air:
+			set {player::%player's uuid%.block} to stone
+		Else if {player::%player's uuid%.block} is not air:
+			set {player::%player's uuid%.block} to stone

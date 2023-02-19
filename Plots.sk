@@ -1,0 +1,83 @@
+options:
+    prefix: &a&lPlot&f&lProtect &7»
+    freeplots_build_prefix: &8(&6&lBuildToggle&8) &f
+    plot_build: freeplots.plot.build
+    plot_pos: worldedit.selection.pos
+    plot_claim: worldedit.region.walls
+    plot_delete: worldedit.history.undo
+    plot_help: freeplots.plot.help
+    plot_name: freeplots.plot1
+    plot_road: freeplots.roadblock
+    plot_floor: freeplots.plotfloor
+    plot_build: freeplots.build
+    plot_border: freeplots.border
+    plot_reset: freeplots.plot.reset
+    plotworld_spawn: freeplots.spawn
+    plot_addplayer: freeplots.addplayer
+    plot_delplayer: freeplots.delplayer
+    plotworld_plotblock: freeplots.plotwall
+    build_command : true
+    permission_error: &cYou do not have permission to do that here.
+
+variables:
+	{building} = true
+    
+command /plot [<text>] [<text>]:
+	trigger:
+		if player has permission "worldedit.selection.pos":
+			if arg-1 is "pos1":
+				set {plot.pos1} to location of block at player
+				make player execute command "//pos1"
+				send "&a&lPlot Pos1 has been set!"
+                
+		if player has permission "worldedit.selection.pos":                
+			if arg-1 is "pos2":
+				set {plot.pos2} to location of block at player
+				make player execute command "//pos2"
+				send "&a&lPlot Pos2 has been set!"
+                
+		if player has permission "worldedit.region.walls":                
+			if arg-1 is "claim":
+				set {_name} to arg 2
+				set {plot.claim} to location of block at player
+				make player execute command "//walls red_wool"
+				send "&a&lPlot Successfully Claimed!"
+                
+		if player has permission "worldedit.history.undo":                
+			if arg-1 is "delete":
+				set {_name} to arg 2
+				make player execute command "//undo"
+				send "&c&lPlot has been deleted!"
+
+		if player has permission "freeplots.plot.reset":                
+			if arg-1 is "reset":
+				make player execute command "//set air"
+				send "&c&lPlot has been reset!"
+                
+		if player has permission "plot.addplayer":                
+			if arg-1 is "addplayer":
+				send "&a&lPlayer has been added to your plot!"
+                
+		if player has permission "plot.delplayer":                
+			if arg-1 is "delplayer":
+				send "&c&lPlayer has been removed from your plot!"
+                
+		if player has permission "freeplots.plot.help":                
+			if arg-1 is "help":
+				send "&c&lM&f&lC&c&lN &a&lFreePlots"
+				send ""
+				send "&7- &a/plot pos1 &7| &fSets Pos1 for the plot"
+				send "&7- &a/plot pos2 &7| &fSets Pos2 for the plot"
+				send "&7- &a/plot claim region_name &7| &fClaims a plot for the player"
+				send "&7- &a/plot addplayer <player_name> <region_name> &7| &fAdds a player to a plot"
+				send "&7- &a/plot delplayer <player_name> <region_name> &7| &fDeletes a player from a plot"
+				send "&7- &a/plot delete region_name &7| &fDeletes a plot from the player"
+				send "&7- &a/plot reset &7| &fResets the plot for the player after typing /plot pos1 and /plot pos2"
+        
+on world change:
+    if player's world is "FreePlots2":
+        set player's gamemode to creative
+        
+on world change:
+    if player's world is "FreePlots2":
+        set player's gamemode to creative

@@ -1,0 +1,8 @@
+function giveWEtools(p: player):
+	give 1 wooden axe named "&d&lWorldEdit Wand" to {_p}
+	give 1 wooden pickaxe named "&b&lSuper Pickaxe" to {_p}
+	give 1 diamond shovel named "&e&lSuperBrush" to {_p}
+    
+command /wetools:
+	trigger:
+		giveWEtools(player)

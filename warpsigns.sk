@@ -1,0 +1,14 @@
+on right click on sign:
+    if line 2 is "warp oldmoslyn":
+        make player execute command "/warp oldmoslyn"
+        
+on right click on sign:
+    if line 2 is "warp newmoslyn":
+        make player execute command "/warp newmoslyn"
+        
+on right click on sign:
+    if line 2 is "warp moslyntown":
+        make player execute command "/warp moslyntown"
+        
+on right click on map:
+	make player execute command "/warp moslyntown"	

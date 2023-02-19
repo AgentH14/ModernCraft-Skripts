@@ -1,0 +1,29 @@
+on weather change to rain or thunder:
+    cancel event
+    
+command /weather [<text>]:
+	trigger:
+		if arg-1 is "clear":
+			set {weather.clear} to "arg-1"
+			make player execute command "pweather clear"
+			send "&aWeather is cleared for %player%"
+            
+		if arg-1 is "storm":
+			set {weather.clear} to "arg-1"
+			make player execute command "pweather storm"
+			send "&aIt's raining now for %player%"
+            
+		if arg-1 is "sun":
+			set {weather.clear} to "arg-1"
+			make player execute command "pweather sun"
+			send "&aIt's now sunny for %player%"
+            
+		if arg-1 is "help":
+			set {weather.clear} to "arg-1"
+			message ""
+			message "&b&lMCN Weather"
+			message ""
+			message "&7- &a/weather clear &7| &fClears the weather for the player"
+			message "&7- &a/weather storm &7| &fMakes it storm for the player"
+			message "&7- &a/weather sun &7| &fMakes it sunny for the player"
+			message ""

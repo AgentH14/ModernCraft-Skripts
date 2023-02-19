@@ -1,0 +1,130 @@
+options:
+    prefix: &e&lSuperBrush &7»
+    
+#Bedrock Editon SuperBrush GUI
+command /sb:
+	trigger:
+		make player execute command "/forms open superbrush"
+    
+#SuperBrush GUI
+command /superbrush:
+	trigger:
+		set {_sb} to a new chest inventory with 3 row with name "&e&lSuperBrush"
+		set slot 4 of {_sb} to green terracotta named "&aBlocks" with lore "&e&lClick or tap to randomize blocks"
+		set slot 12 of {_sb} to book named "&aBrushes" with lore "&e&lClick or tap to view brushes"
+		set slot 14 of {_sb} to mushroom named "&aBrush Size" with lore "&e&lClick to randomize your brush size"
+		set slot 22 of {_sb} to golden shovel named "&aBrush Unbind" with lore "&e&lUnbinds your brush tool"
+		open {_sb} to player
+        
+command /brushes:
+	trigger:
+		set {_brushes} to a new chest inventory with 3 row with name "&e&lSuperBrushes"
+		set slot 11 of {_brushes} to paper named "&aSphere" with lore "&e&lSphere Brush"
+		set slot 12 of {_brushes} to paper named "&aCylinder" with lore "&e&lCylinder Brush"
+		set slot 13 of {_brushes} to paper named "&aSmooth" with lore "&e&lSmooth Brush"
+		set slot 14 of {_brushes} to paper named "&aRaise" with lore "&e&lRaise Brush"
+		set slot 15 of {_brushes} to paper named "&aBlock Remover" with lore "&e&lRemoves Blocks Brush"
+		set slot 18 of {_brushes} to paper named "&aDeform" with lore "&e&lDeform Brush"
+		set slot 19 of {_brushes} to paper named "&aPaint" with lore "&e&lPaint Brush"
+		open {_brushes} to player
+        
+command /brushblocks:
+	trigger:
+		set {_brushblocks} to a new chest inventory with 3 row with name "&e&lPaintBrush Blocks"
+		set slot 13 of {_brushblocks} to grass block named "&aBlock Randomizer" with lore "&e&lRandomizes Blocks on select"
+		open {_brushblocks} to player
+        
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrush":
+		if index of event-slot = 12:
+			cancel event
+			make player execute command "/brushes"
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrush":
+		if index of event-slot = 4:
+			cancel event
+			make player execute command "/brushblocks"
+            
+on inventory click:
+	if name of event-inventory is "&e&lPaintBrush Blocks":
+		if index of event-slot = 13:
+			cancel event
+			make player execute command "brush paint sphere 4 set stone" or "brush paint sphere 4 set cobblestone" or "brush paint sphere 4 set stone_bricks" or "brush paint sphere 4 set oak_planks" or "brush paint sphere 4 set gray_wool"
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrush":
+		if index of event-slot = 14:
+			cancel event
+			make player execute command "/brushsize"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrush":
+		if index of event-slot = 22:
+			cancel event
+			make player execute command "/brush unbind"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 11:
+			cancel event
+			make player execute command "//brush sphere stone 3"
+			send "&eTo change block, type: //brush sphere <block> <number>"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 12:
+			cancel event
+			make player execute command "//brush cylinder stone 3"
+			send "&eTo change block, type: //brush cylinder <block> <number>"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 13:
+			cancel event
+			make player execute command "//brush smooth"
+			send "&eTo change block, type: //brush smooth"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 14:
+			cancel event
+			make player execute command "//brush raise cylinder 3"
+			send "&eTo change block, type: //brush raise <brush shape> <number>"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 15:
+			cancel event
+			make player execute command "//brush cylinder air 1"
+			send "&eTo change block, type: //brush cylinder <block> <number>"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 18:
+			cancel event
+			make player execute command "//brush deform sphere"
+			send "&eTo change block, type: //brush deform <sphere or cylinder or cuboid>"
+			close player's inventory
+            
+on inventory click:
+	if name of event-inventory is "&e&lSuperBrushes":
+		if index of event-slot = 19:
+			cancel event
+			make player execute command "//brush paint sphere set stone"
+			send "&eTo change block, type: //brush paint <sphere or cylinder or cuboid> <radius> set <block>"
+			close player's inventory
+        
+command /brushsize:
+	trigger:
+		make player execute command "size 1" or "size 2" or "size 3" or "size 4" or "size 5"
+        
+        
+#Item Mechanics to open brush menu

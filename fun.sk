@@ -1,0 +1,16 @@
+command /menu:
+	trigger:
+		set {_gmcmenu} to a new chest inventory with 40 row with name "&8Building Blocks"
+		set slot 22 of {_gmcmenu} to lime wool named "&a&lCLICK ME!" with lore "&b&lFUN SURPRISE AWAITS!"
+		open {_gmcmenu} to player
+        
+
+command /fun:
+	trigger:
+		make player execute command "/menu"
+        
+on inventory click:
+	if name of event-inventory is "&8Building Blocks":
+		if index of event-slot = 22:
+			cancel event
+			push the player upwards at speed 50

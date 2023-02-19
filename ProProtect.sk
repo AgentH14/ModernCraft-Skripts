@@ -1,0 +1,25 @@
+options:
+  prefix: &b&lPro&f&lProtect &7»
+  permission: proprotect.build
+  
+on place:
+	event-world is "hub"
+	cancel event
+	send "{@prefix} &cYou can't build here!"
+    
+on break:
+	event-world is "hub"
+	cancel event
+	send "{@prefix} &cYou can't build here!"
+    
+on place:
+	event-world is "City"
+	if player does not have permission "{@permission}":
+		cancel event
+		send "{@prefix} &cYou can't build here!"
+    
+on break:
+	event-world is "City"
+	if player does not have permission "{@permission}":
+		cancel event
+		send "{@prefix} &cYou can't build here!"

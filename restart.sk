@@ -1,0 +1,16 @@
+#Restart Minecraft Server Skript
+#Coded by AgentH14
+
+command /restart:
+	permission: op
+	trigger:
+		kick all players because "&c&lServer Restarting"
+		stop the server
+        
+command /stop:
+	trigger:
+		kick all players because "&c&lServer Stopped"
+		stop the server
+        
+on Skript stop:
+    kick all players because "&c&lServer Restarting"

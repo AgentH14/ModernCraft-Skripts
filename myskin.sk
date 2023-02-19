@@ -1,0 +1,3 @@
+command /agent:
+	trigger:
+		make player execute command "/skin set ITZZ_AgentH14"

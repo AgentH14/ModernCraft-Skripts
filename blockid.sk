@@ -1,0 +1,15 @@
+options:
+  prefix: &f&l[&a&lBlockID&f&l] &a
+  IDs:  stone is 1, grass is 2, dirt is 3, cobblestone is 4, wooden planks are 5, sand is 12, gravel is 13, gold ore is 14, iron ore is 15, coal ore is 16, logs are 17, leaves are 18, sponge is 19, glass is 20, lapis lazuli ore is 21, lapis lazuli block is 22, sandstone is 24, bed is 26, cobweb is 30, wool is 35, flowers are 37, rose is 38, brown mushroom is 39, red mushroom is 40, gold block is 41, iron block is 42, double stone slab is 43, stone slab is 44, brick block is 45, tnt is 46, bookshelf is 47, moss stone is 48, obsidian is 49, torch is 50, fire is 51, monster spawner is 52, oak wood stairs are 53, chest is 54, redstone wire is 55, diamond ore is 56, diamond block is 57, crafting table is 58, farmland is 60, furnace is 61, lit furnace is 62, sign post is 63, wooden door is 64, ladder is 65, rail is 66, stone stairs is 67, wall sign is 68, lever is 69, stone pressure plate is 70, iron door is 71, wooden pressure plate is 72, redstone ore is 73, lit redstone ore is 74, unlit redstone torch is 75, redstone torch is 76, stone button is 77, snow layer is 78, ice is 79, snow block is 80, cactus is 81, clay block is 82, sugar cane is 83, jukebox is 84, fence is 85, pumpkin is 86, netherrack is 87, soul sand is 88, glowstone is 89, portal is 90, jack-o-lantern is 91, cake block is 92, trapped chest is 146, weighted pressure plate (light) is 147, weighted pressure plate (heavy) is 148, daylight sensor is 151, redstone block is 152, nether quartz ore is 153, hopper is 154, quartz block is 155, quartz stairs is 156, activator rail is 157, dropper is 158, stained clay is 159, hay bale is 170, carpet is 171, hardened clay is 172, coal block is 173.
+
+
+command /blockid:
+	trigger:
+		if player's tool is not air: #air counts as a block
+			set {_item} to player's tool
+		if {_item}.getType().isBlock():
+			send "{@prefix}%player's tool%"
+            
+command /itemid:
+	trigger:
+		send "{@prefix} {@IDs}"

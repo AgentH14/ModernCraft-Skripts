@@ -1,0 +1,5 @@
+options:
+  prefix: &c&lM&f&lC&c&lN &7»
+
+every 30 minutes:
+	broadcast "{@prefix} &6&lVistors can type /fly to view the server!"

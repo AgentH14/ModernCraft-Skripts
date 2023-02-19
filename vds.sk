@@ -1,0 +1,10 @@
+options:
+  prefix: &b&lVDS &7&l»
+  
+command /vds:
+	aliases: /viewdistancesupreme
+	trigger:
+		send "{@prefix} &a%view distance of player%"
+		set {_view} to view distance of player
+		set view distance of player to 10
+		set view distance of all players to 25

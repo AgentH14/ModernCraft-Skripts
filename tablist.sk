@@ -1,0 +1,13 @@
+on join:
+  set player's tab list header to "&8------&7[ &c&lModern&f&lCraft &7]&8------ %nl%"
+  set player's tab list footer to "&c&lWebsite: &f&lmcn-server.xyz %nl% &9&lDiscord: &f&l/discord %nl% %nl%&c&lWebsite: &f&l/site"
+
+command /tab:
+	trigger:
+		set player's tab list header to "&8------&7[ &c&lModern&f&lCraft &7]&8------ %nl%"
+		set player's tab list footer to "&c&lWebsite: &f&lmcn-server.xyz %nl%&9&lDiscord: &f&l/discord %nl%&c&lWebsite: &f&l/site"
+        
+command /tabreload:
+	aliases: tabr
+	trigger:
+		make player execute command "/tab"		

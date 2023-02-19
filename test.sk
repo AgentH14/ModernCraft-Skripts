@@ -1,0 +1,3 @@
+command /Ecopen:
+	trigger:
+		set {_inventory} to chest inventory with 1 row
